@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="flag.png">
+    <title>Japan</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>日本Welcome</h1> 
+    <button id="animate-btn"><b>Start Your Journey</b></button>
+    <img src="USa_jet-removebg-preview.png" alt="airplane" class="airplane" id="airplane-img">
+    <img src="nuke-removebg-preview.png" alt="bomb" class="bomb" id="bomb-img">
+
+    <!-- JavaScript embedded directly in the HTML -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const button = document.getElementById('animate-btn');
+            const airplane = document.getElementById('airplane-img');
+            const bomb = document.getElementById('bomb-img');
+
+            // Ensure button is found
+            if (!button) {
+                console.error('Button not found!');
+                return; // Exit if button is not found
+            }
+
+            // Add a click event listener to the button
+            button.addEventListener('click', function() {
+                // Start airplane animation
+                airplane.classList.add('animate');  // Starts the animation
+                
+                // Wait for 4.5 seconds before starting the bomb fall animation
+                setTimeout(() => {
+                    bomb.style.visibility = 'visible';  // Make bomb visible
+                    bomb.classList.add('falling');  // Start the bomb falling animation
+                }, 4500);  // Delay of 4.5 seconds after airplane starts
+
+                // After 10 seconds, redirect to the new page
+                setTimeout(function() {
+                    window.location.href = "http://127.0.0.1:5500/index2.html";  // Redirect to the new page
+                }, 10000);  // 10-second delay for redirection
+            });
+        });
+    </script>
+</body>
+</html>
